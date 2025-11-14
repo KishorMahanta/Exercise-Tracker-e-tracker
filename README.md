@@ -1,5 +1,24 @@
 Live : https://exercise-tracker-gray-rho.vercel.app/
 
+
+The Exercise Tracker uses a real-time data connection so any changes to exercise entries (create, update, delete) are instantly reflected across all connected clients. The backend stores data in MongoDB and uses Mongoose for schema modeling. To deliver real-time updates, the server integrates Socket.IO (WebSockets) and emits events when the database changes. The frontend (React) subscribes to those Socket.IO events and updates the UI immediately — no manual refresh required.
+
+This architecture gives a responsive, collaborative experience: if a user adds or edits an exercise from one device, other open sessions see the change instantly. The backend also exposes RESTful APIs for normal CRUD operations so clients that don’t support websockets still work.
+
+Key components:
+
+MongoDB (Atlas or self-hosted) for persistent storage.
+
+Mongoose for schema & data validation.
+
+Express for REST APIs.
+
+Socket.IO for real-time push notifications.
+
+React frontend using socket.io-client to listen for updates.
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
